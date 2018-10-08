@@ -26,9 +26,12 @@ if(pesoValido && alturaValida){
     var imc = peso / (altura * altura);    
     tdImc.textContent = imc;
 } else if(!pesoValido && alturaValida){
-    tdImc.textContent = "Peso inválido."
+    console.log = ("Peso inválido.");
+    tdImc.textContent = "Peso inválido.";
 } else if(pesoValido && !alturaValida){
-    tdImc.textContent = "Altura inválida."
+    console.log = ("Altura inválida");
+    tdImc.textContent = "Altura inválida.";
 } else {
-    tdImc.textContent = "Peso inválido e altura inválida."
+    console.log = ("Peso e altura inválidas.");
+    tdImc.textContent = "Peso inválido e altura inválida.";
 }
