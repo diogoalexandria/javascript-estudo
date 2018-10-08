@@ -33,19 +33,19 @@ for(var i = 0; i < arrayDePacientes.length; i++){
         console.log = ("Peso inválido.");
         tdImc.textContent = "Peso inválido.";
         //paciente.style.backgroundColor = "lightcoral";
-        paciente.classList.add("paciente-invalido");
+        paciente.classList.add("informacao-invalida");
 
     } else if(pesoValido && !alturaValida){
         console.log = ("Altura inválida");
         tdImc.textContent = "Altura inválida.";
         //paciente.style.backgroundColor = "lightcoral";
-        paciente.classList.add("paciente-invalido");
+        paciente.classList.add("informacao-invalida");
 
     } else {
         console.log = ("Peso e altura inválidas.");
         tdImc.textContent = "Peso inválido e altura inválida.";
         //paciente.style.backgroundColor = "lightcoral";
-        paciente.classList.add("paciente-invalido");
+        paciente.classList.add("informacao-invalida");
 
     }
 }
