@@ -50,4 +50,8 @@ for(var i = 0; i < arrayDePacientes.length; i++){
     }
 }
 
-
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener("click",function(event){
+    event.preventDefault();
+    console.log("Oi, fui clicado.")
+});
