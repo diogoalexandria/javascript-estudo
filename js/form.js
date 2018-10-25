@@ -5,12 +5,22 @@ botaoAdicionar.addEventListener("click",function(event){
     var form = document.querySelector("#form-adiciona");
 
     var paciente = obtemPacienteDoFormulario(form);
-    var pacienteTr = montaTr(paciente);    
-
+    var pacienteTr = montaTr(paciente);
+    
+    var erros = validaPaciente(paciente);
+    if(erros.length > 0){//Teste se valida paciente esta enviando alguma mensagem
+        console.log("Paciente inválido");        
+        exibeMensagensDeErro(erros);        
+        return; //Saindo da função anônima sem adicionar o paciente na tabela 
+    }
+    
+    //Adicionando paciente na tabela
     var tabela =  document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
 
     form.reset();
+    var mensagensErro = document.querySelector("#mensagens-erro");
+    
 });
 
 function obtemPacienteDoFormulario(form){
@@ -42,4 +52,42 @@ function montaTd(dado, classe){
     td.textContent = dado;
     td.classList.add(classe);
     return td;
+}
+
+function validaPaciente(paciente){
+    var erros = [];
+
+    if(paciente.nome.length == 0){
+        erros.push("- Nome inválido");
+    }
+
+    if(!validaPeso(paciente.peso) || paciente.peso.length == 0){     
+        erros.push("- Peso inválido");        
+    }
+
+    if(!validaAltura(paciente.altura) || paciente.altura.length == 0){   
+        erros.push("- Altura inválida");
+    }
+
+    if(paciente.gordura.length == 0 || paciente.gordura > 100){
+        erros.push("- Gordura corporal inválida");
+    }
+    
+    return erros;    
+}
+
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro");
+    ul.innerHTML = "";
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+    //let variavel local
+    /*for (let index = 0; index < erros.length; index++) {
+        erro = erros[i];
+        var li = document.createElement("li");
+        li.textContent = element;        
+    }*/
 }
