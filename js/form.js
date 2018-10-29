@@ -36,7 +36,7 @@ function obtemPacienteDoFormulario(form){
 
 function montaTr(paciente){
     var pacienteTr = document.createElement("tr");
-    pacienteTr.classList.add("Paciente"); //Adiciona a classe paciente a tr criada.
+    pacienteTr.classList.add("paciente"); //Adiciona a classe paciente a tr criada.
     
     pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
     pacienteTr.appendChild(montaTd(paciente.peso, "info-peso"));
